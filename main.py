@@ -31,8 +31,11 @@ screen.onkey(snake.down,"Down")
 game_on=True
 while game_on:
     screen.update()
-    time.sleep(0.2)
-    
+    time.sleep(0.18)
     snake.move()
+    # now for detection and collision of food
+    if snake.segments[0].distance(food)<15:
+        print("good")
+        food.refresh()
 
 screen.exitonclick()
