@@ -1,5 +1,6 @@
 from turtle import *
-STARTING=[(0,0),(-20,0),(-40,0)]
+import sys
+STARTING=[(0,0),(-20,0),(-40,0),(-60,0),(-80,0)]
 MOVE=20
 LEFT=[-1,0]
 RIGHT=[1,0]
@@ -50,3 +51,26 @@ class Snake:
         head=self.segments[0].heading()
         if head!=90:
             self.segments[0].setheading(270)
+
+    def exit(self):
+        if (self.segments[0].xcor()>400 or self.segments[0].xcor()<-400)  or (self.segments[0].ycor()>400 or self.segments[0].ycor()<-400):
+            print("out")
+            sys.exit()
+
+    def self_harm(self):
+        for i in range(1,8):
+            if self.segments[0].pos()==self.segments[1].pos():
+                print("out")
+                sys.exit()
+
+            elif self.segments[0].pos()==self.segments[2].pos():
+                print("out")
+                sys.exit()
+
+            elif self.segments[0].pos()==self.segments[3].pos():
+                print("out")
+                sys.exit()
+            
+            elif self.segments[0].pos()==self.segments[4].pos():
+                print("out")
+                sys.exit()
