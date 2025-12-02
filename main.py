@@ -4,6 +4,8 @@ import time
 from snake import *
 from food import Food
 
+import sys
+
 
 screen=Screen()
 screen.title("My Snake Game")
@@ -33,6 +35,8 @@ while game_on:
     screen.update()
     time.sleep(0.18)
     snake.move()
+    snake.exit()
+    snake.self_harm()
     # now for detection and collision of food
     if snake.segments[0].distance(food)<15:
         print("good")
